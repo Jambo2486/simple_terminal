@@ -1,6 +1,6 @@
 [package]
 name = "simple_terminal"
-version = "0.1.1"
+version = "0.1.0"
 authors = ["runner"]
 edition = "2021"
 
