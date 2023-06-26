@@ -1,7 +1,7 @@
 use std::io;
 use std::io::Write;
 use std::os::unix::io::AsRawFd;
-use libc::{c_int, tcgetattr, tcsetattr, termios, TCSANOW, ECHO, ICANON};
+use libc::{tcgetattr, tcsetattr, termios, TCSANOW, ECHO, ICANON}; // c_int, 
 use crate::known_csi;
 
 pub fn enable_raw() -> io::Result<()> {
@@ -42,16 +42,20 @@ pub fn disable_raw() -> io::Result<()> {
 }
 
 pub fn enable_alternate() -> io::Result<()> {
+	let mut stdout = io::stdout();
+
 	// Switch to the alternate screen
-	write!(io::stdout(), known_csi!('h', "?1049"))?;
+	write!(stdout, "{}", known_csi!('h', "?1049"))?;
 	stdout.flush()?;
 
 	Ok(())
 }
 
 pub fn disable_alternate() -> io::Result<()> {
+	let mut stdout = io::stdout();
+
 	// Switch back to the main screen
-	write!(io::stdout(), known_csi!('l', "?1049"))?;
+	write!(stdout, "{}", known_csi!('l', "?1049"))?;
 	stdout.flush()?;
 	
 	Ok(())
