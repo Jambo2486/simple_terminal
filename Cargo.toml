@@ -1,5 +1,5 @@
 [package]
-name = "simple-terminal"
+name = "simple_terminal"
 version = "0.1.0"
 authors = ["runner"]
 edition = "2021"
@@ -9,6 +9,6 @@ name = "simple_terminal"
 path = "src/lib.rs"
 
 [dependencies]
-libc
+libc = "0.2.146"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
