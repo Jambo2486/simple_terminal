@@ -36,7 +36,7 @@ pub fn move_down(lines: usize) -> String {
 
 /// Positive lines: up
 /// Negative lines: down
-pub fn move_by(columns: isize, lines: isize) -> [String; 2] {
+pub fn move_by(columns: isize, lines: isize) -> String {
 	let columns = if columns > 0 {
 		move_right(columns as usize)
 	} else if columns < 0 {
@@ -49,7 +49,7 @@ pub fn move_by(columns: isize, lines: isize) -> [String; 2] {
 		move_down(-lines as usize)
 	} else { String::new() };
 
-	[columns, lines]
+	format!("{}{}", columns, lines)
 }
 
 /// To the beginning of the line, `lines` down
