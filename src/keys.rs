@@ -7,7 +7,7 @@ pub enum Key {
 	Unknown
 }
 
-pub fn byte_to_key(byte: u8) -> Option<Key> {
+pub fn byte_to_key(byte: u8) -> Key {
 	match byte {
 		byte if byte.is_ascii_graphic() => Key::Character(byte as char),
 		b'\n' => Key::Enter,
