@@ -9,7 +9,7 @@ pub enum Key {
 
 pub fn byte_to_key(byte: u8) -> Option<Key> {
 	match byte {
-		byte if byte.is_ascii_graphic() => Some(Key::Character(byte as char)),
+		byte if byte.is_ascii_graphic() => Key::Character(byte as char),
 		b'\n' => Key::Enter,
 		b'\x0a' => Key::Enter,
 		b'\x1B' => Key::Escape,
