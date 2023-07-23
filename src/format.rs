@@ -1,5 +1,7 @@
 use crate::csi::csi;
 
+// TODO: Make some shortcut functions like `embolden`, `italicise`, `highlight`, `reset`, etc.
+
 pub enum Context {
 	Foreground,
 	Background,
